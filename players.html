@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Players — Front Office OS</title>
+  <link rel="stylesheet" href="theme.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div class="min-h-screen p-5 md:p-10 max-w-7xl mx-auto">
+    <a href="index.html" class="text-sm text-[var(--color-primary)]">← Dashboard</a>
+
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-5 mt-8 mb-8">
+      <div>
+        <div class="text-xs text-[var(--color-muted)]">LIVE NFL + NBA PLAYER DATABASE</div>
+        <h1 id="roster-title" class="heading text-5xl font-black mt-2">Team roster.</h1>
+        <p class="text-[var(--color-muted)] mt-3">Choose any NFL or NBA team. The roster loads automatically from the live data feed.</p>
+      </div>
+      <a href="ai-gm.html" class="bg-[var(--color-primary)] text-[var(--color-primary-contrast)] font-bold px-5 py-3 rounded-[var(--radius)]">✦ Ask about a player</a>
+    </div>
+
+    <div class="panel p-4 grid grid-cols-1 md:grid-cols-3 gap-3 mb-5">
+      <select id="league-select" class="bg-[#191c17] border border-white/10 rounded-[var(--radius)] px-4 py-3 outline-none">
+        <option value="NFL">NFL</option>
+        <option value="NBA">NBA</option>
+      </select>
+      <select id="team-select" class="bg-[#191c17] border border-white/10 rounded-[var(--radius)] px-4 py-3 outline-none"></select>
+      <input id="player-search" class="bg-transparent border border-white/10 rounded-[var(--radius)] px-4 py-3 outline-none" placeholder="Search players...">
+    </div>
+
+    <div class="flex items-center justify-between mb-3">
+      <div id="roster-status" class="text-xs text-[var(--color-muted)]">Loading live roster…</div>
+      <div id="roster-count" class="text-xs text-[var(--color-muted)]">— players</div>
+    </div>
+
+    <div class="panel overflow-hidden">
+      <div class="grid grid-cols-12 gap-4 p-4 text-xs text-[var(--color-muted)] border-b border-white/10">
+        <div class="col-span-6 md:col-span-5">PLAYER</div>
+        <div class="col-span-2">POSITION</div>
+        <div class="col-span-2">STATUS</div>
+        <div class="hidden md:block col-span-3" id="roster-updated">LIVE ROSTER</div>
+      </div>
+      <div id="roster-list" class="divide-y divide-white/10">
+        <div class="p-8 text-sm text-[var(--color-muted)]">Loading roster…</div>
+      </div>
+    </div>
+
+    <p class="text-xs text-[var(--color-muted)] mt-4">
+      Roster data is requested when the page loads. Your selected league/team is saved in your browser.
+    </p>
+  </div>
+  <script src="roster.js"></script>
+</body>
+</html>
